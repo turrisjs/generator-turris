@@ -1,0 +1,33 @@
+{
+  "name": "generator-turris",
+  "version": "0.0.0",
+  "description": "Yeoman generator",
+  "license": "MIT",
+  "main": "app/index.js",
+  "repository": "yamalight/generator-turris",
+  "author": {
+    "name": "Tim Ermilov",
+    "email": "yamalight@gmail.com",
+    "url": "https://github.com/yamalight"
+  },
+  "scripts": {
+    "test": "mocha"
+  },
+  "files": [
+    "app"
+  ],
+  "keywords": [
+    "yeoman-generator",
+    "react",
+    "es6",
+    "babel"
+  ],
+  "dependencies": {
+    "yeoman-generator": "^0.19.0",
+    "chalk": "^1.0.0",
+    "yosay": "^1.0.2"
+  },
+  "devDependencies": {
+    "mocha": "*"
+  }
+}

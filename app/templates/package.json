@@ -1,0 +1,24 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "Turris.js app",
+  "main": "index.js",
+  "scripts": {
+    "test": "gulp test",
+    "start": "gulp",
+    "build": "gulp build",
+    "deploy": "gulp deploy"
+  },
+  "author": "Tim Ermilov <yamalight@gmail.com> (http://codezen.net)",
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "^3.3.4",
+    "react": "^0.13.2",
+    "react-router": "^0.13.3"
+  },
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "turris-gulp-tasks": "^0.1.0",
+    "turris-test-helpers": "^0.1.2"
+  }
+}
