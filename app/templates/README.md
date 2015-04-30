@@ -1,1 +1,5 @@
-# Turris.js app
+# Awesome <%= name %> application
+
+<%= description %>
+
+Made with [Turris.js](https://github.com/turrisjs)

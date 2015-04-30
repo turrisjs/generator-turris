@@ -9,37 +9,42 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   prompting: function () {
-    // var done = this.async();
+    var done = this.async();
 
     // Have Yeoman greet the user.
     this.log(yosay(
       'Welcome to the breathtaking ' + chalk.red('Turris') + ' generator!'
     ));
 
-    /*var prompts = [{
-      type: 'confirm',
-      name: 'someOption',
-      message: 'Would you like to enable this option?',
-      default: true
+    var prompts = [{
+      type: 'input',
+      name: 'name',
+      message: 'Your project name',
+      default: this.appname,
+    }, {
+      type: 'input',
+      name: 'description',
+      message: 'Your project description',
+      default: 'No description yet',
     }];
 
     this.prompt(prompts, function (props) {
       this.props = props;
-      // To access props later use this.props.someOption;
-
       done();
-    }.bind(this));*/
+    }.bind(this));
   },
 
   writing: {
     app: function () {
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('package.json'),
-        this.destinationPath('package.json')
+        this.destinationPath('package.json'),
+        this.props
       );
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('README.md'),
-        this.destinationPath('README.md')
+        this.destinationPath('README.md'),
+        this.props
       );
     },
 
@@ -60,9 +65,10 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath('gulpfile.js'),
         this.destinationPath('gulpfile.js')
       );
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('index.html'),
-        this.destinationPath('index.html')
+        this.destinationPath('index.html'),
+        this.props
       );
       this.fs.copy(
         this.templatePath('webpack.config.js'),
@@ -78,9 +84,10 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath('gulp'),
         this.destinationPath('gulp')
       );
-      this.fs.copy(
+      this.fs.copyTpl(
         this.templatePath('src'),
-        this.destinationPath('src')
+        this.destinationPath('src'),
+        this.props
       );
       this.fs.copy(
         this.templatePath('style'),

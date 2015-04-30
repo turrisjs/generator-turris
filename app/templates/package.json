@@ -1,7 +1,7 @@
 {
-  "name": "app",
+  "name": "<%= _.camelCase(name) %>",
   "version": "1.0.0",
-  "description": "Turris.js app",
+  "description": "<%= description %>",
   "main": "index.js",
   "scripts": {
     "test": "gulp test",
@@ -9,7 +9,7 @@
     "build": "gulp build",
     "deploy": "gulp deploy"
   },
-  "author": "Tim Ermilov <yamalight@gmail.com> (http://codezen.net)",
+  "author": "",
   "license": "MIT",
   "dependencies": {
     "bootstrap": "^3.3.4",
