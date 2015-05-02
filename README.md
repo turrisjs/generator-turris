@@ -41,6 +41,9 @@ $ yo turris
 `$ yo turris`  
 Creates a new turris.js application.
 
+`$ yo turris:page myName`  
+Generates a new page named *myName* and injects it into main app.
+
 ## Learning Your Way Around
 
 Once installed, you can create a basic application by following the prompts.
@@ -80,6 +83,10 @@ Client:
 - **/src/pages/** - React pages folder
 - **/src/pages/index** - Index page that's loaded by default
 - **/src/pages/other** - Other page that's added for convenience
+
+Pages (can be generated with `turris:page`):
+- **/src/pages/PAGE/index.js** - React component and route definition
+- **/src/pages/PAGE/template.jsx** - React template
 
 Misc:
 - **/gulp/** - Custom Gulp tasks
