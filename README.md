@@ -48,6 +48,10 @@ Generates a new React component named *myName*.
 Generates a new page named *myName* and injects it into main app.
 The only difference between page and component is that page generates and exports a route.
 
+`$ yo turris:docker`  
+Generates a [docker](https://www.docker.com/) environment for the project with all the requirements included.
+
+
 ## Learning Your Way Around
 
 Once installed, you can create a basic application by following the prompts.
@@ -103,6 +107,15 @@ Misc:
 - **/gulpfile.js** - Gulp bootstrapper
 - **/webpack.config.js** - Webpack config for development
 - **/webpack.config.prod.js** - Webpack config for production
+
+### Docker
+
+You can as well quickly setup a [docker](https://www.docker.com/) container that includes all the required packages for Turris.js app to work (assuming you have docker installed).  
+To do so, follow the steps below:  
+
+1. Run `yo turris:docker` to generate all the required docker files
+2. Run `docker build -t appname .` to generate new docker container
+3. Run `docker run -i -t -p 8080:8080 appname` to launch generated container
 
 ### TODO
 

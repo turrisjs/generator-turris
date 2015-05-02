@@ -16,7 +16,8 @@
   "files": [
     "app",
     "page",
-    "component"
+    "component",
+    "docker"
   ],
   "keywords": [
     "yeoman-generator",
