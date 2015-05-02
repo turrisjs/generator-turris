@@ -41,8 +41,12 @@ $ yo turris
 `$ yo turris`  
 Creates a new turris.js application.
 
+`$ yo turris:component myName`  
+Generates a new React component named *myName*.
+
 `$ yo turris:page myName`  
 Generates a new page named *myName* and injects it into main app.
+The only difference between page and component is that page generates and exports a route.
 
 ## Learning Your Way Around
 
@@ -77,12 +81,16 @@ Client:
 - **/src/app.jsx** - React app bootstrapper
 - **/src/routes.js** - Routes for react-router
 - **/src/app/** - React app definition with react-router setup
-- **/src/component/** - React components folder
-- **/src/component/chrome** - Application chrome React component
-- **/src/component/chrome** - Application navigation bar React component
+- **/src/components/** - React components folder
+- **/src/components/chrome** - Application chrome React component
+- **/src/components/navigation** - Application navigation bar React component
 - **/src/pages/** - React pages folder
 - **/src/pages/index** - Index page that's loaded by default
 - **/src/pages/other** - Other page that's added for convenience
+
+Components (can be generated with `turris:component`):
+- **/src/components/COMPONENT/index.js** - React component definition
+- **/src/components/COMPONENT/template.jsx** - React template
 
 Pages (can be generated with `turris:page`):
 - **/src/pages/PAGE/index.js** - React component and route definition
@@ -95,6 +103,10 @@ Misc:
 - **/gulpfile.js** - Gulp bootstrapper
 - **/webpack.config.js** - Webpack config for development
 - **/webpack.config.prod.js** - Webpack config for production
+
+### TODO
+
+Add more docs, subgenerators and a proper test suite.
 
 ## License
 

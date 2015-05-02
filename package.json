@@ -15,7 +15,8 @@
   },
   "files": [
     "app",
-    "page"
+    "page",
+    "component"
   ],
   "keywords": [
     "yeoman-generator",
