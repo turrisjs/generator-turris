@@ -1,9 +1,12 @@
 'use strict';
 var yeoman = require('yeoman-generator');
 var _ = require('lodash');
+var fs = require('fs');
+var header = fs.readFileSync('./license.txt', 'utf8');
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
+    this.header = header;
     this.argument('name', {
       required: true,
       type: String,
@@ -18,12 +21,14 @@ module.exports = yeoman.generators.Base.extend({
     this.fs.copyTpl(
       this.templatePath('index.js'),
       this.destinationPath('src/components/' + camelcaseName + '/index.js'),
-      {name: this.name}
+      {name: this.name,
+      header:this.header}
     );
     this.fs.copyTpl(
       this.templatePath('template.jsx'),
       this.destinationPath('src/components/' + camelcaseName + '/template.jsx'),
-      {name: this.name}
+      {name: this.name,
+      header: this.header}
     );
   }
 });
