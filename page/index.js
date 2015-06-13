@@ -1,7 +1,7 @@
 'use strict';
 var yeoman = require('yeoman-generator');
 var _ = require('lodash');
-var fs = require('fs');
+var getHeader = require('../common/util/header').getHeader;
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
@@ -30,15 +30,7 @@ module.exports = yeoman.generators.Base.extend({
   },
 
   writing: function () {
-    var header;
-    var license = this.props.license;
-    if (license.toLowerCase() === 'no' || !license || !license.length) {
-      header = '';
-    } else if (license.toLowerCase() === 'yes') {
-      header = fs.readFileSync('./LICENSE.md', 'utf8');
-    } else {
-      header = fs.readFileSync(license, 'utf8');
-    }
+    var header = getHeader(this.props.license);
     var camelcaseName = _.camelCase(this.name);
     this.fs.copyTpl(
       this.templatePath('index.js'),
