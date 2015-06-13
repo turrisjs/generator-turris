@@ -21,14 +21,12 @@ module.exports = yeoman.generators.Base.extend({
     this.fs.copyTpl(
       this.templatePath('index.js'),
       this.destinationPath('src/components/' + camelcaseName + '/index.js'),
-      {name: this.name,
-      header:this.header}
+      {name: this.name, header: this.header}
     );
     this.fs.copyTpl(
       this.templatePath('template.jsx'),
       this.destinationPath('src/components/' + camelcaseName + '/template.jsx'),
-      {name: this.name,
-      header: this.header}
+      {name: this.name, header: this.header}
     );
   }
 });
