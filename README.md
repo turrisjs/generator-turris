@@ -44,7 +44,8 @@ $ yo turris
 Creates a new turris.js application.
 
 `$ yo turris:component myName`  
-Generates a new React component named *myName*.
+Generates a new inlined React component named *myName*.
+If you want to generate standalone/self-contained and more sophisticated components, look into using [Turris component generator](https://github.com/turrisjs/generator-turris-component).
 
 `$ yo turris:page myName`  
 Generates a new page named *myName* and injects it into main app.
