@@ -1,4 +1,5 @@
-// react
+<%= header %>
+
 import React from 'react';
 import {Route} from 'react-router';
 import Template from './template.jsx';

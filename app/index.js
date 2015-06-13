@@ -97,6 +97,10 @@ module.exports = yeoman.generators.Base.extend({
         this.templatePath('test'),
         this.destinationPath('test')
       );
+      this.fs.copy(
+          this.templatePath('LICENSE.md'),
+          this.destinationPath('LICENSE.md')
+      );
     }
   },
 

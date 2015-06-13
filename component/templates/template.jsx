@@ -1,4 +1,5 @@
-// react
+<%= header %>
+
 import React from 'react';
 
 const render = function() {
