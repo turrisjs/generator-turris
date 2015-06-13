@@ -98,8 +98,8 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath('test')
       );
       this.fs.copy(
-          this.templatePath('license.txt'),
-          this.destinationPath('license.txt')
+          this.templatePath('LICENSE.md'),
+          this.destinationPath('LICENSE.md')
       );
     }
   },

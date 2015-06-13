@@ -2,7 +2,7 @@
 var yeoman = require('yeoman-generator');
 var _ = require('lodash');
 var fs = require('fs');
-var header = fs.readFileSync('./license.txt', 'utf8');
+var header = fs.readFileSync('./LICENSE.md', 'utf8');
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
