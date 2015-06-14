@@ -1,12 +1,12 @@
 'use strict';
 var yeoman = require('yeoman-generator');
 var _ = require('lodash');
-var fs = require('fs');
-var header = fs.readFileSync('./LICENSE.md', 'utf8');
+var getHeader = require('../common/util/header').getHeader;
 
 module.exports = yeoman.generators.Base.extend({
   initializing: function () {
-    this.header = header;
+    var done = this.async();
+
     this.argument('name', {
       required: true,
       type: String,
@@ -14,21 +14,33 @@ module.exports = yeoman.generators.Base.extend({
     });
 
     this.log('You called the Turris component subgenerator with the argument ' + this.name + '.');
+
+    var prompts = [{
+      type: 'input',
+      name: 'license',
+      message: 'Add header license? - no / yes (use LICENSE.md) / your file path',
+      default: 'no',
+      store: true, // save for future
+    }];
+
+    this.prompt(prompts, function (props) {
+      this.props = props;
+      done();
+    }.bind(this));
   },
 
   writing: function () {
+    var header = getHeader(this.props.license);
     var camelcaseName = _.camelCase(this.name);
     this.fs.copyTpl(
       this.templatePath('index.js'),
       this.destinationPath('src/components/' + camelcaseName + '/index.js'),
-      {name: this.name,
-      header:this.header}
+      {name: this.name, header: header}
     );
     this.fs.copyTpl(
       this.templatePath('template.jsx'),
       this.destinationPath('src/components/' + camelcaseName + '/template.jsx'),
-      {name: this.name,
-      header: this.header}
+      {name: this.name, header: header}
     );
   }
 });

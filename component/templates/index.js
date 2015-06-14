@@ -1,5 +1,6 @@
+/*
 <%= header %>
-
+*/
 import React from 'react';
 import Template from './template.jsx';
 
