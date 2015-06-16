@@ -47,5 +47,21 @@ module.exports = yeoman.generators.Base.extend({
       this.destinationPath('src/components/' + camelcaseName + '/style.less'),
       {name: this.name, header: header}
     );
+
+    // add tests
+    this.fs.copyTpl(
+      this.templatePath('tests/test.jsx'),
+      this.destinationPath('test/component-' + camelcaseName + '.jsx'),
+      {name: this.name, header: header}
+    );
+    // update test entry point
+    var path = this.destinationPath('test/index.jsx');
+    this.fs.copy(path, path, {
+      process: function (content) {
+        return content +
+          'require(\'./component-' + camelcaseName + '.jsx\');' +
+          '\n';
+      }
+    });
   }
 });
