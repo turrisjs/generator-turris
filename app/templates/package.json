@@ -18,7 +18,7 @@
   },
   "devDependencies": {
     "gulp": "^3.8.11",
-    "turris-gulp-tasks": "^0.3.0",
+    "turris-gulp-tasks": "^0.4.0",
     "turris-test-helpers": "^0.1.2"
   }
 }
