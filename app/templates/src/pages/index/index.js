@@ -13,6 +13,6 @@ const IndexPage = React.createClass({
     render: Template,
 });
 
-const IndexRoute = React.createElement(DefaultRoute, {key: 'route_default', handler: IndexPage});
+const IndexRoute = React.createElement(DefaultRoute, {name: 'home', key: 'route_default', handler: IndexPage});
 
 export default IndexRoute;

@@ -13,13 +13,13 @@ const render = function() {
                         <span className="icon-bar"></span>
                         <span className="icon-bar"></span>
                     </button>
-                    <ReactRouter.Link to="/" className="navbar-brand"><%= name %></ReactRouter.Link>
+                    <ReactRouter.Link to="home" className="navbar-brand"><%= name %></ReactRouter.Link>
                 </div>
 
                 <div className="collapse navbar-collapse">
                     <ul className="nav navbar-nav">
-                        <li><ReactRouter.Link to="/">Home</ReactRouter.Link></li>
-                        <li><ReactRouter.Link to="/other">Other</ReactRouter.Link></li>
+                        <li><ReactRouter.Link to="home">Home</ReactRouter.Link></li>
+                        <li><ReactRouter.Link to="other">Other</ReactRouter.Link></li>
                     </ul>
                 </div>
             </div>
