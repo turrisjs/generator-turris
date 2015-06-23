@@ -21,6 +21,12 @@ module.exports = yeoman.generators.Base.extend({
       message: 'Add header license? - no / yes (use LICENSE.md) / your file path',
       default: 'no',
       store: true, // save for future
+    }, {
+      type: 'confirm',
+      name: 'store',
+      message: 'Include basic postal.js store?',
+      default: false,
+      store: true,
     }];
 
     this.prompt(prompts, function (props) {
@@ -35,7 +41,7 @@ module.exports = yeoman.generators.Base.extend({
     this.fs.copyTpl(
       this.templatePath('index.js'),
       this.destinationPath('src/components/' + camelcaseName + '/index.js'),
-      {name: this.name, header: header}
+      {name: this.name, addStore: this.props.store, header: header}
     );
     this.fs.copyTpl(
       this.templatePath('template.jsx'),
@@ -63,5 +69,14 @@ module.exports = yeoman.generators.Base.extend({
           '\n';
       }
     });
+
+    if (this.props.store) {
+      this.npmInstall(['postal'], {save: true});
+      this.fs.copyTpl(
+        this.templatePath('store.js'),
+        this.destinationPath('src/components/' + camelcaseName + '/store.js'),
+        {name: this.name, header: header}
+      );
+    }
   }
 });
