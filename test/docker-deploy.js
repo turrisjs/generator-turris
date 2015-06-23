@@ -3,21 +3,18 @@
 var path = require('path');
 var assert = require('yeoman-generator').assert;
 var helpers = require('yeoman-generator').test;
-var os = require('os');
 
-describe('turris:app', function () {
+describe('Turris:docker-deploy', function () {
   before(function (done) {
-    helpers.run(path.join(__dirname, '../app'))
-      .withOptions({ skipInstall: true })
-      .withPrompts({ someOption: true })
+    helpers.run(path.join(__dirname, '../docker-deploy'))
+      .withArguments('name')
+      .withOptions({ skipInstall: true, force: true })
       .on('end', done);
   });
 
   it('creates files', function () {
     assert.file([
-      'package.json',
-      '.editorconfig',
-      '.gitignore'
+      'Dockerfile-deploy'
     ]);
   });
 });
