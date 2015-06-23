@@ -5,7 +5,7 @@ import postal from 'postal';
 
 const <%= _.camelCase(name) %>Channel = postal.channel('<%= _.camelCase(name) %>');
 
-postal.subscribe('action', ({option}, envelope) => {
+<%= _.camelCase(name) %>Channel.subscribe('action', ({option}, envelope) => {
     // ...
 });
 
