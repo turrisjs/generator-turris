@@ -10,8 +10,8 @@ if (__WEBPACK__) {
     require('./style.less');
 }
 
-const <%= _.camelCase(name) %>Component = React.createClass({
+const <%= _.capitalize(_.camelCase(name)) %>Component = React.createClass({
     render: Template,
 });
 
-export default <%= _.camelCase(name) %>Component;
+export default <%= _.capitalize(_.camelCase(name)) %>Component;
