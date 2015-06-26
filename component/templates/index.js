@@ -6,7 +6,7 @@ import Template from './template.jsx';<% if (addStore) { %>
 import <%= _.camelCase(name) %>Channel from './store.js';
 <% } %>
 // only load style when using webpack
-
+/* istanbul ignore if  */
 if (__WEBPACK__) {
     require('./style.less');
 }
