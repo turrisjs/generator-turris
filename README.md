@@ -54,6 +54,13 @@ The only difference between page and component is that page generates and export
 `$ yo turris:docker`  
 Generates a [docker](https://www.docker.com/) environment for the project with all the requirements included.
 
+`$ yo turris:docker-deploy`  
+Generates a separate [docker](https://www.docker.com/) environment for the project statical deployment via nginx.
+To deploy the app using it, you will need to:
+1. Compile your app using `npm run deploy` command
+2. Package it into docker container using `docker build -t app-name -f Dockerfile-deploy .` command
+3. Run it on docker and forward port 80
+
 
 ## Learning Your Way Around
 

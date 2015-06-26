@@ -9,4 +9,4 @@ files.forEach(function(file) {
 });
 
 gulp.task('default', ['debug', 'serve']);
-gulp.task('deploy', ['build']);
+gulp.task('deploy', ['build', 'assets']);

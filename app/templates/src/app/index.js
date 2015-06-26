@@ -3,10 +3,10 @@ import React from 'react';
 import {RouteHandler} from 'react-router';
 
 // main class
-const app = React.createClass({
+const App = React.createClass({
     render() {
         return <RouteHandler/>;
     },
 });
 
-export default app;
+export default App;
