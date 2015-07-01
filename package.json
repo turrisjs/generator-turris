@@ -17,7 +17,8 @@
     "app",
     "page",
     "component",
-    "docker"
+    "docker",
+    "common"
   ],
   "keywords": [
     "yeoman-generator",
