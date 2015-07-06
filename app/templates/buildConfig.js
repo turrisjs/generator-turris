@@ -9,6 +9,9 @@ module.exports = {
         production: require('./webpack.config.prod.js'),
     },
     serverOverrides: function(app, express) {
-        app.use(express.static(path.join(__dirname, 'dist')));
+        app.use('/dist/', express.static(path.join(__dirname, 'dist')));
+        app.get('/api/', function(req, res) {
+            res.send('OK');
+        });
     }
 };
