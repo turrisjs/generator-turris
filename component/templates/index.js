@@ -2,7 +2,7 @@
 <%= header %>
 */
 import React from 'react';
-import Template from './template.jsx';<% if (addStore) { %>
+import Template from './template.jsx';<% if (addStore !== 'none') { %>
 import <%= _.camelCase(name) %>Channel from './store.js';
 <% } %>
 // only load style when using webpack
