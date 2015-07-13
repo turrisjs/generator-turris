@@ -26,6 +26,12 @@ module.exports = yeoman.generators.Base.extend({
       name: 'description',
       message: 'Your project description',
       default: 'No description yet',
+    }, {
+      type: 'input',
+      name: 'style',
+      message: 'Do you want to use less, scss, styl or plain css?',
+      default: 'less',
+      store: true, // save for future
     }];
 
     this.prompt(prompts, function (props) {
@@ -90,8 +96,8 @@ module.exports = yeoman.generators.Base.extend({
         this.props
       );
       this.fs.copy(
-        this.templatePath('style'),
-        this.destinationPath('style')
+        this.templatePath('style/main.less'),
+        this.destinationPath('style/main.' + this.props.style)
       );
       this.fs.copy(
         this.templatePath('test'),
