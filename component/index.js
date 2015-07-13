@@ -27,6 +27,12 @@ module.exports = yeoman.generators.Base.extend({
       message: 'Include basic postal.js store?',
       default: false,
       store: true,
+    }, {
+      type: 'input',
+      name: 'style',
+      message: 'Do you want to use less, scss, styl or plain css?',
+      default: 'less',
+      store: true, // save for future
     }];
 
     this.prompt(prompts, function (props) {
@@ -41,7 +47,7 @@ module.exports = yeoman.generators.Base.extend({
     this.fs.copyTpl(
       this.templatePath('index.js'),
       this.destinationPath('src/components/' + camelcaseName + '/index.js'),
-      {name: this.name, addStore: this.props.store, header: header}
+      {name: this.name, addStore: this.props.store, header: header, style: this.props.style}
     );
     this.fs.copyTpl(
       this.templatePath('template.jsx'),
@@ -50,7 +56,7 @@ module.exports = yeoman.generators.Base.extend({
     );
     this.fs.copyTpl(
       this.templatePath('style.less'),
-      this.destinationPath('src/components/' + camelcaseName + '/style.less'),
+      this.destinationPath('src/components/' + camelcaseName + '/style.' + this.props.style),
       {name: this.name, header: header}
     );
 
