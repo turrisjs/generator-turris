@@ -12,4 +12,4 @@ const <%= _.capitalize(_.camelCase(name)) %>Page = React.createClass({
 const route = React.createElement(Route, {name: '<%= _.camelCase(name) %>', key: 'route_<%= _.camelCase(name) %>', handler: <%= _.capitalize(_.camelCase(name)) %>Page});
 
 export default route;
-export {Page};
+export {<%= _.capitalize(_.camelCase(name)) %>Page};
