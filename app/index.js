@@ -27,9 +27,10 @@ module.exports = yeoman.generators.Base.extend({
       message: 'Your project description',
       default: 'No description yet',
     }, {
-      type: 'input',
+      type: 'list',
       name: 'style',
       message: 'Do you want to use less, scss, styl or plain css?',
+      choices: ['less', 'scss', 'styl', 'css'],
       default: 'less',
       store: true, // save for future
     }];
