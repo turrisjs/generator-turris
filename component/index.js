@@ -22,11 +22,12 @@ module.exports = yeoman.generators.Base.extend({
       default: 'no',
       store: true, // save for future
     }, {
-      type: 'confirm',
-      name: 'store',
-      message: 'Include basic postal.js store?',
-      default: false,
-      store: true,
+        type: 'list',
+        name: 'store',
+        message: 'Do you want to include postal, rxmq or no store?',
+        choices: ['postal', 'rxmq', 'none'],
+        default: 'none',
+        store: true,
     }, {
       type: 'list',
       name: 'style',
@@ -77,13 +78,42 @@ module.exports = yeoman.generators.Base.extend({
       }
     });
 
-    if (this.props.store) {
-      this.npmInstall(['postal'], {save: true});
+    if (this.props.store && this.props.store !== 'none') {
+      this.npmInstall([this.props.store], {save: true});
       this.fs.copyTpl(
-        this.templatePath('store.js'),
+        this.templatePath('store-' + this.props.store + '.js'),
         this.destinationPath('src/components/' + camelcaseName + '/store.js'),
         {name: this.name, header: header}
       );
+
+      // if we're using Rx, patch up webpack config
+      if (this.props.store === 'rxmq') {
+        // update routes
+        var degugPath = this.destinationPath('webpack.config.js');
+        var prodPath = this.destinationPath('webpack.config.prod.js');
+        var updateWpConfig = function (content) {
+          // check if it's already there
+          content = content.toString();
+          // load as module for simpler parsing
+          var Module = module.constructor;
+          var m = new Module();
+          m._compile(content, 'file');
+          var data = m.exports;
+          var aliases = data.resolve.alias;
+          if (aliases && aliases.rx) {
+            return content;
+          }
+          // append rx resolution
+          var newContent = content.replace('resolve: {', 'resolve: {\n\
+        alias: {\n\
+            rx: \'rx/dist/rx.lite.js\',\n\
+        },');
+          // return new file
+          return newContent;
+        };
+        this.fs.copy(degugPath, degugPath, {process: updateWpConfig});
+        this.fs.copy(prodPath, prodPath, {process: updateWpConfig});
+      }
     }
   }
 });
