@@ -6,7 +6,7 @@
 import should from 'turris-test-helpers';
 
 // import page
-import {Page} from '../src/pages/<%= _.camelCase(name) %>/index.js';
+import {<%= _.capitalize(_.camelCase(name)) %>Page as Page} from '../src/pages/<%= _.camelCase(name) %>/index.js';
 
 describe('<%= _.capitalize(name) %> page suite', function() {
     it('Should render', function() {
