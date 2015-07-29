@@ -45,27 +45,27 @@ module.exports = yeoman.generators.Base.extend({
 
   writing: function () {
     var header = getHeader(this.props.license);
-    var camelcaseName = _.camelCase(this.name);
+    var cleanedName = _.kebabCase(this.name);
     this.fs.copyTpl(
       this.templatePath('index.js'),
-      this.destinationPath('src/components/' + camelcaseName + '/index.js'),
+      this.destinationPath('src/components/' + cleanedName + '/index.js'),
       {name: this.name, addStore: this.props.store, header: header, style: this.props.style}
     );
     this.fs.copyTpl(
       this.templatePath('template.jsx'),
-      this.destinationPath('src/components/' + camelcaseName + '/template.jsx'),
+      this.destinationPath('src/components/' + cleanedName + '/template.jsx'),
       {name: this.name, header: header}
     );
     this.fs.copyTpl(
       this.templatePath('style.less'),
-      this.destinationPath('src/components/' + camelcaseName + '/style.' + this.props.style),
+      this.destinationPath('src/components/' + cleanedName + '/style.' + this.props.style),
       {name: this.name, header: header}
     );
 
     // add tests
     this.fs.copyTpl(
       this.templatePath('tests/test.jsx'),
-      this.destinationPath('test/component-' + camelcaseName + '.jsx'),
+      this.destinationPath('test/component-' + cleanedName + '.jsx'),
       {name: this.name, header: header}
     );
     // update test entry point
@@ -73,7 +73,7 @@ module.exports = yeoman.generators.Base.extend({
     this.fs.copy(path, path, {
       process: function (content) {
         return content +
-          'require(\'./component-' + camelcaseName + '.jsx\');' +
+          'require(\'./component-' + cleanedName + '.jsx\');' +
           '\n';
       }
     });
@@ -82,7 +82,7 @@ module.exports = yeoman.generators.Base.extend({
       this.npmInstall([this.props.store], {save: true});
       this.fs.copyTpl(
         this.templatePath('store-' + this.props.store + '.js'),
-        this.destinationPath('src/components/' + camelcaseName + '/store.js'),
+        this.destinationPath('src/components/' + cleanedName + '/store.js'),
         {name: this.name, header: header}
       );
 
