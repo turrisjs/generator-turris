@@ -1,5 +1,3 @@
-var path = require('path');
-
 module.exports = {
     webpackConfig: {
         debug: require('./webpack.config.js'),
