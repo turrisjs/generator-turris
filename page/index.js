@@ -68,7 +68,7 @@ module.exports = yeoman.generators.Base.extend({
       {name: this.name, header: header}
     );
     // update test entry point
-    var testPath = this.destinationPath('test/index.jsx');
+    var testPath = this.destinationPath('test/index.js');
     this.fs.copy(testPath, testPath, {
       process: function (content) {
         return content +
