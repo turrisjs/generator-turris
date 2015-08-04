@@ -6,3 +6,6 @@ dist/
 
 # ignore coverage report
 coverage/
+
+# ignore docs
+esdoc/

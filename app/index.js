@@ -61,12 +61,20 @@ module.exports = yeoman.generators.Base.extend({
         this.destinationPath('.editorconfig')
       );
       this.fs.copy(
+        this.templatePath('eslintrc'),
+        this.destinationPath('.eslintrc')
+      );
+      this.fs.copy(
         this.templatePath('gitignore'),
         this.destinationPath('.gitignore')
       );
       this.fs.copy(
         this.templatePath('buildConfig.js'),
         this.destinationPath('buildConfig.js')
+      );
+      this.fs.copy(
+        this.templatePath('esdoc.json'),
+        this.destinationPath('esdoc.json')
       );
       this.fs.copy(
         this.templatePath('gulpfile.js'),
