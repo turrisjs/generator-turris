@@ -3,24 +3,21 @@
 */
 /* global describe, it */
 // import helpers
-import should from 'turris-test-helpers';
+import test from 'tape';
+import React from 'React/addons';
+const {TestUtils} = React.addons;
 
 // import page
 import Component from '../src/components/<%= _.camelCase(name) %>/index.js';
 
-describe('<%= _.capitalize(name) %> component suite', function() {
-    it('Should render', function() {
-        const React = this.React;
-        const TestUtils = this.TestUtils;
-
+test('<%= _.capitalize(name) %> component suite', function(it) {
+    it.test('# should render', function(t) {
         // render
-        const comp = TestUtils.renderIntoDocument(
-            <Component />,
-            this.container
-        );
+        const comp = TestUtils.renderIntoDocument(<Component />);
 
         // check if link and name are correct
         const divs = TestUtils.scryRenderedDOMComponentsWithTag(comp, 'div');
-        should(divs.length).equal(1);
+        t.ok(1, divs.length);
+        t.end();
     });
 });

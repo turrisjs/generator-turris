@@ -30,6 +30,8 @@
   ],
   "dependencies": {
     "chalk": "^1.0.0",
+    "escodegen": "^1.6.1",
+    "esprima": "^2.5.0",
     "lodash": "^3.8.0",
     "yeoman-generator": "^0.19.0",
     "yosay": "^1.0.2"

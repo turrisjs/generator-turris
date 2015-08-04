@@ -1,6 +1,9 @@
 'use strict';
 var yeoman = require('yeoman-generator');
 var _ = require('lodash');
+var esprima = require('esprima');
+var escodegen = require('escodegen');
+var addAlias = require('../common/util/alias');
 var getHeader = require('../common/util/header').getHeader;
 
 module.exports = yeoman.generators.Base.extend({
@@ -69,7 +72,7 @@ module.exports = yeoman.generators.Base.extend({
       {name: this.name, header: header}
     );
     // update test entry point
-    var path = this.destinationPath('test/index.jsx');
+    var path = this.destinationPath('test/index.js');
     this.fs.copy(path, path, {
       process: function (content) {
         return content +
@@ -95,20 +98,12 @@ module.exports = yeoman.generators.Base.extend({
           // check if it's already there
           content = content.toString();
           // load as module for simpler parsing
-          var Module = module.constructor;
-          var m = new Module();
-          m._compile(content, 'file');
-          var data = m.exports;
-          var aliases = data.resolve.alias;
-          if (aliases && aliases.rx) {
-            return content;
-          }
+          var data = esprima.parse(content);
           // append rx resolution
-          var newContent = content.replace('resolve: {', 'resolve: {\n\
-        alias: {\n\
-            rx: \'rx/dist/rx.lite.js\',\n\
-        },');
-          // return new file
+          data = addAlias(data);
+          // generate new text
+          var newContent = escodegen.generate(data);
+          // return
           return newContent;
         };
         this.fs.copy(degugPath, degugPath, {process: updateWpConfig});
