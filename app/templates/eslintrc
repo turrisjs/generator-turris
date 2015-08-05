@@ -17,7 +17,7 @@
     // enable react plugin
     "react"
   ],
-  globals: {
+  "globals": {
     "__WEBPACK__": true
   },
   // To give you an idea how to override rule options
@@ -100,7 +100,7 @@
     "no-multiple-empty-lines": [1, {"max": 2}],
     "no-nested-ternary": 2,
     "no-new-object": 2,
-    "semi-spacing": [2, {"before": false, "after": true}]
+    "semi-spacing": [2, {"before": false, "after": true}],
     "no-spaced-func": 2,
     "no-trailing-spaces": 2,
     "no-underscore-dangle": 2,
