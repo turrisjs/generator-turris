@@ -17,7 +17,7 @@ test('<%= _.capitalize(name) %> component suite', function(it) {
 
         // check if link and name are correct
         const divs = TestUtils.scryRenderedDOMComponentsWithTag(comp, 'div');
-        t.ok(1, divs.length);
+        t.equal(1, divs.length);
         t.end();
     });
 });

@@ -17,7 +17,7 @@ test('<%= _.capitalize(name) %> page suite', function(it) {
 
         // check if link and name are correct
         const divs = TestUtils.scryRenderedDOMComponentsWithTag(comp, 'h1');
-        t.ok(1, divs.length);
+        t.equal(1, divs.length);
         t.end();
     });
 });

@@ -9,7 +9,7 @@ test('App suite', function(it) {
         // render
         App.start();
         // verify it exists
-        t.ok(1, document.getElementById('mainContainer').children.length);
+        t.equal(1, document.getElementById('mainContainer').children.length);
         t.end();
     });
 });
