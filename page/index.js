@@ -38,6 +38,11 @@ module.exports = yeoman.generators.Base.extend({
       {name: this.name, header: header}
     );
     this.fs.copyTpl(
+      this.templatePath('page.js'),
+      this.destinationPath('src/pages/' + camelcaseName + '/page.js'),
+      {name: this.name, header: header}
+    );
+    this.fs.copyTpl(
       this.templatePath('template.jsx'),
       this.destinationPath('src/pages/' + camelcaseName + '/template.jsx'),
       {name: this.name, header: header}
@@ -53,8 +58,8 @@ module.exports = yeoman.generators.Base.extend({
         newString += ' from \'./pages/' + camelcaseName + '/index.js\';\nimport$1;';
         var newContent = content.toString().replace(re, newString);
         // add new route to array
-        newString = 'let routes = [\n    ' + capitalizedName + ',';
-        re = /let routes = \[/;
+        newString = 'const routes = [\n    ' + capitalizedName + ',';
+        re = /const routes = \[/;
         newContent = newContent.replace(re, newString);
         // return new file
         return newContent;
