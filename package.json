@@ -1,6 +1,6 @@
 {
   "name": "generator-turris",
-  "version": "0.8.4",
+  "version": "0.9.0",
   "description": "Yeoman generator for Turris.js applications done with React and ES6",
   "license": "MIT",
   "main": "app/index.js",
