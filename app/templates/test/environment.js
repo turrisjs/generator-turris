@@ -11,7 +11,7 @@ global.window = global.document.defaultView;
 global.navigator = global.window.navigator;
 
 // mock location
-global.window.location.href = '/';
+global.window.location.href = 'http://localhost/';
 
 // local storage polyfill
 global.window.localStorage = localStorage;
