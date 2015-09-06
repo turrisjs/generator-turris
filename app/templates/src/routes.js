@@ -4,7 +4,7 @@ import Other from './pages/other/index.js';
 import NotFound from './pages/notfound/index.js';
 
 // create route array
-let routes = [
+const routes = [
     Index,
     Other,
     NotFound,

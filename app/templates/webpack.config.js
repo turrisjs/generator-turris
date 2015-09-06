@@ -1,10 +1,15 @@
 var path = require('path');
+var webpack = require('webpack');
 
 module.exports = {
     devtool: 'inline-source-map',
     debug: true,
     context: path.resolve(__dirname),
-    entry: './src/index.js',
+    entry: [
+        'webpack-dev-server/client?http://0.0.0.0:8080', // WebpackDevServer host and port
+        'webpack/hot/only-dev-server', // "only" prevents reload on syntax errors
+        './src/index.js',
+    ],
     output: {
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/',
@@ -12,7 +17,6 @@ module.exports = {
     },
     resolve: {
         root: path.resolve(__dirname),
-        packageMains: ['style', 'main'],
         extensions: ['', '.js', '.jsx'],
         modulesDirectories: ['node_modules'],
     },
@@ -54,7 +58,7 @@ module.exports = {
             {
                 test: /\.jsx?$/,
                 exclude: /node_modules/,
-                loader: 'babel',
+                loaders: ['react-hot', 'babel'],
             },
             {
                 test: /\.woff\d?(\?.+)?$/,
@@ -82,4 +86,7 @@ module.exports = {
             }
         ],
     },
+    plugins: [
+        new webpack.HotModuleReplacementPlugin(),
+    ],
 };
