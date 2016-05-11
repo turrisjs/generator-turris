@@ -1,6 +1,6 @@
 # generator-turris
 
-[![Join the chat at https://gitter.im/turrisjs/generator-turris](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/turrisjs/generator-turris?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![No Maintenance Intended](http://unmaintained.tech/badge.svg)](http://unmaintained.tech/)
 
 > [Yeoman](http://yeoman.io) generator for ES6 React web applications
 
