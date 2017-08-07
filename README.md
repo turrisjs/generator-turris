@@ -13,7 +13,7 @@ All of the application code is managed and compiled by [Webpack](http://webpack.
 [NPM](https://npmjs.org/) is used for the dependency management.  
 
 [Gulp.js](http://gulpjs.com/) is used as a build-tool.  
-Testing is done using [eslint](http://eslint.org/) for linting and code-style and [mocha.js](http://visionmedia.github.io/mocha/) with [should.js](https://github.com/visionmedia/should.js/) for automated testing.  
+Testing is done using [eslint](http://eslint.org/) for linting and code-style and [mocha.js](http://mochajs.org/) with [should.js](https://github.com/visionmedia/should.js/) for automated testing.  
 
 Standalone reusable components for your Turris application can be generated using separate [Turris-component](https://github.com/turrisjs/generator-turris-component) generator.  
 
